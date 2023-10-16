@@ -84,7 +84,7 @@ else:
 
 
 
-if lat!= 0.0 and long != 0.0:
+if lat != 0.0 and lon != 0.0:
   # Create a Streamlit app
   st.title("Most Vulnerable Cities to Flooding USA")
   # Send an HTTP GET request to the URL
