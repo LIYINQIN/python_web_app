@@ -84,7 +84,7 @@ else:
 
 
 
-if lat is not None and lon is not None:
+if lat!= 0.0 and long != 0.0:
   # Create a Streamlit app
   st.title("Most Vulnerable Cities to Flooding USA")
   # Send an HTTP GET request to the URL
@@ -106,4 +106,6 @@ if lat is not None and lon is not None:
 
   else:
       st.write("Failed to retrieve the web page. Status code:", response.status_code)
+else:
+    st.write("-----")
 
