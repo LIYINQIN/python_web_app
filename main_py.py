@@ -22,6 +22,7 @@ st.title("Flood Prediction App")
 # Collect user input
 lat = st.number_input("Enter Latitude")
 lon = st.number_input("Enter Longitude")
+st.write(lat)
 
 # Check if both latitude and longitude have been provided
 if lat is not None and lon is not None:
