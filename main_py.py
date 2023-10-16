@@ -84,11 +84,9 @@ if lat is not None and lon is not None:
 
 # Create a Streamlit app
 st.title("Most Vulnerable Cities to Flooding USA")
-
 # Send an HTTP GET request to the URL
 url = "https://insurify.com/insights/most-vulnerable-cities-to-flooding-2023/"
 response = requests.get(url)
-
 if response.status_code == 200:
     # Parse the HTML content of the page
     soup = BeautifulSoup(response.text, 'html.parser')
