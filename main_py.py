@@ -9,7 +9,7 @@ import seaborn as sns
 from sklearn.preprocessing import LabelEncoder
 from scipy import stats
 from sklearn.ensemble import RandomForestClassifier
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
@@ -26,7 +26,7 @@ from imblearn.over_sampling import SMOTE
 # %%
 # Load the dataset
 df  = pd.read_csv("balanced.csv")
-df.head()
+
 
 # %% [markdown]
 # <h1>Exploring the dataset</h1>
@@ -37,7 +37,7 @@ column_data_types = df.dtypes
 column_data_types
 
 # %%
-df.shape
+
 
 # %% [markdown]
 # <h1>Model Building</h1>
