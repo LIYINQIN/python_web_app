@@ -1,4 +1,4 @@
 altair
 pandas
 streamlit
-sklearn.model_selection
+scikit-learn
