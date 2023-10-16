@@ -22,48 +22,50 @@ st.title("Flood Prediction App")
 lat = st.number_input("Enter Latitude")
 lon = st.number_input("Enter Longitude")
 
-# Make API request to get weather data
-url = "https://weatherapi-com.p.rapidapi.com/current.json"
-querystring = {"q": f"{lat},{lon}"}
+# Check if both latitude and longitude have been provided
+if lat is not None and lon is not None:
+    # Make API request to get weather data
+    url = "https://weatherapi-com.p.rapidapi.com/current.json"
+    querystring = {"q": f"{lat},{lon}"}
 
-headers = {
-    "X-RapidAPI-Key": "fd686eb4fbmsh09a45c03eb9a89fp1a3435jsnce9ce4bbab3e",
-    "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
-}
+    headers = {
+        "X-RapidAPI-Key": "fd686eb4fbmsh09a45c03eb9a89fp1a3435jsnce9ce4bbab3e",
+        "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
+    }
 
-response = requests.get(url, headers=headers, params=querystring)
-main = response.json()['current']
-location = response.json()['location']
+    response = requests.get(url, headers=headers, params=querystring)
+    main = response.json()['current']
+    location = response.json()['location']
 
-Max_Temp = main['temp_f']
-Min_Temp = main['temp_c']
-Rainfall = main['precip_mm'] * 100
-Relative_Humidity = main['humidity']
-Wind_Speed = main['wind_kph']
-Cloud_Coverage = main['cloud']
-LATITUDE = location['lat']
-LONGITUDE = location['lon']
+    Max_Temp = main['temp_f']
+    Min_Temp = main['temp_c']
+    Rainfall = main['precip_mm'] * 100
+    Relative_Humidity = main['humidity']
+    Wind_Speed = main['wind_kph']
+    Cloud_Coverage = main['cloud']
+    LATITUDE = location['lat']
+    LONGITUDE = location['lon']
 
-data = {
-    'Max_Temp': [Max_Temp],
-    'Min_Temp': [Min_Temp],
-    'Rainfall': [Rainfall],
-    'Relative_Humidity': [Relative_Humidity],
-    'Wind_Speed': [Wind_Speed],
-    'Cloud_Coverage': [Cloud_Coverage],
-    'LATITUDE': [LATITUDE],
-    'LONGITUDE': [LONGITUDE]
-}
+    data = {
+        'Max_Temp': [Max_Temp],
+        'Min_Temp': [Min_Temp],
+        'Rainfall': [Rainfall],
+        'Relative_Humidity': [Relative_Humidity],
+        'Wind_Speed': [Wind_Speed],
+        'Cloud_Coverage': [Cloud_Coverage],
+        'LATITUDE': [LATITUDE],
+        'LONGITUDE': [LONGITUDE]
+    }
 
-X_test = pd.DataFrame(data)
+    X_test = pd.DataFrame(data)
 
-# Make predictions
-predictions = model.predict(X_test)
-pr = predictions[0]
+    # Make predictions
+    predictions = model.predict(X_test)
+    pr = predictions[0]
 
-# Display the result
-threshold = 0.5
-if pr >= threshold:
-    st.write("Flood Prediction: Yes")
-else:
-    st.write("Flood Prediction: No")
+    # Display the result
+    threshold = 0.5
+    if pr >= threshold:
+        st.write("Flood Prediction: Yes")
+    else:
+        st.write("Flood Prediction: No")
