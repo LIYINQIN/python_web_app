@@ -39,7 +39,7 @@ if lat is not None and lon is not None:
 
     country = location['location']
     st.write("Country: ")
-     st.write(country)
+    st.write(country)
 
     Max_Temp = main['temp_f']
     Min_Temp = main['temp_c']
