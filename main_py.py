@@ -1,7 +1,7 @@
 
 import pandas as pd
-import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
+import pandas as pd
 
 
 import requests
@@ -40,14 +40,14 @@ main = response.json()['current']
 location = response.json()['location']
 
 
-import pandas as pd
+
 
 Max_Temp = main['temp_f']
 Min_Temp = main['temp_c']
 Rainfall = main['precip_mm'] * 100
 Relative_Humidity = main['humidity']
 Wind_Speed = main['wind_kph']
-Cloud_Coverage = x['cloud']
+Cloud_Coverage = main['cloud']
 LATITUDE = location['lat']	
 LONGITUDE = location['lon']
 
