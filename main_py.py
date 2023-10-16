@@ -25,7 +25,7 @@ lon = st.number_input("Enter Longitude")
 st.write(lat)
 
 # Check if both latitude and longitude have been provided
-if lat is not None and lon is not None:
+if lat is not 0.0 and lon is not 0.0:
     # Make API request to get weather data
     url = "https://weatherapi-com.p.rapidapi.com/current.json"
     querystring = {"q": f"{lat},{lon}"}
