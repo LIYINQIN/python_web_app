@@ -37,6 +37,10 @@ if lat is not None and lon is not None:
     main = response.json()['current']
     location = response.json()['location']
 
+    country = location['location']
+    st.write("Country: ")
+     st.write(country)
+
     Max_Temp = main['temp_f']
     Min_Temp = main['temp_c']
     Rainfall = main['precip_mm'] * 100
