@@ -78,7 +78,7 @@ if lat is not None and lon is not None:
     else:
         st.write("Flood Prediction: No")
 else:
-    st.write("Enter Lat and Lon)
+    st.write("Enter Lat and Lon")
 
 
 
