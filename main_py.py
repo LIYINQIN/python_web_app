@@ -83,29 +83,3 @@ else:
 
 
 
-
-if lat != 0.0 and lon != 0.0:
-  # Create a Streamlit app
-  st.title("Most Vulnerable Cities to Flooding USA")
-  # Send an HTTP GET request to the URL
-  url = "https://insurify.com/insights/most-vulnerable-cities-to-flooding-2023/"
-  response = requests.get(url)
-  if response.status_code == 200:
-      # Parse the HTML content of the page
-      soup = BeautifulSoup(response.text, 'html.parser')
-
-      # Find the relevant data on the page (you may need to inspect the HTML structure of the page)
-      # In this case, we're looking for h3 elements
-      h3_elements = soup.find_all('h3')
-
-      # Extract and display the names using Streamlit
-      names = [h3.get_text() for h3 in h3_elements]
-
-      for name in names:
-          st.write(name)
-
-  else:
-      st.write("Failed to retrieve the web page. Status code:", response.status_code)
-else:
-    st.write("-----")
-
